@@ -29,10 +29,17 @@ const api = axios.create({
 /**
  * INTERCEPTOR DE REQUEST
  * Agrega el token JWT a todas las peticiones si existe en localStorage
+ * Maneja tanto token de admin como userToken de usuario
  */
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    // Primero intentar con token de admin
+    let token = localStorage.getItem('token');
+
+    // Si no hay token de admin, intentar con token de usuario
+    if (!token) {
+      token = localStorage.getItem('userToken');
+    }
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -80,6 +87,25 @@ export const login = async (correo, contrasena) => {
     correo,
     contrasena,
   });
+  return response.data;
+};
+
+/**
+ * Registro de nuevo usuario
+ * @param {object} datos - Datos del usuario y perfil
+ * @returns {Promise} - Retorna los datos del usuario y perfil creados
+ */
+export const registro = async (datos) => {
+  const response = await api.post('/registro/', datos);
+  return response.data;
+};
+
+/**
+ * Obtener el perfil del usuario autenticado desde el token
+ * @returns {Promise} - Datos del perfil con monedas
+ */
+export const obtenerMiPerfil = async () => {
+  const response = await api.get('/perfil/me/');
   return response.data;
 };
 
@@ -323,6 +349,75 @@ export const obtenerPerfiles = async () => {
  */
 export const obtenerPerfil = async (id) => {
   const response = await api.get(`/perfiles/${id}/`);
+  return response.data;
+};
+
+// ========================================
+// SERVICIOS PARA USUARIOS AUTENTICADOS
+// ========================================
+
+/**
+ * Actualizar perfil del usuario autenticado
+ * @param {Object} datos - {nombre_perfil?, contrasena?}
+ * @returns {Promise} - Perfil actualizado
+ */
+export const actualizarMiPerfil = async (datos) => {
+  const response = await api.put('/perfil/me/update/', datos);
+  return response.data;
+};
+
+/**
+ * Obtener progreso del usuario autenticado
+ * @returns {Promise} - {total_retos, retos_completados, porcentaje_completado}
+ */
+export const obtenerMiProgreso = async () => {
+  const response = await api.get('/perfil/me/progreso/');
+  return response.data;
+};
+
+/**
+ * Obtener progreso por temas del usuario autenticado
+ * Retorna el estado de completitud de cada tema
+ * @returns {Promise} - Array con {id_tema, nombre_tema, total_retos, retos_completados, esta_completado}
+ */
+export const obtenerProgresoTemas = async () => {
+  const response = await api.get('/perfil/me/progreso-temas/');
+  return response.data;
+};
+
+/**
+ * Obtener retos de un tema con progreso del usuario
+ * @param {number} idTema - ID del tema
+ * @returns {Promise} - Lista de retos con progreso
+ */
+export const obtenerRetosDelTema = async (idTema) => {
+  const response = await api.get(`/temas/${idTema}/retos/`);
+  return response.data;
+};
+
+/**
+ * Iniciar un reto (comprar con monedas)
+ * @param {number} idReto - ID del reto
+ * @returns {Promise} - {message, progreso, perfil}
+ */
+export const iniciarReto = async (idReto) => {
+  const response = await api.post(`/retos/${idReto}/iniciar/`);
+  return response.data;
+};
+
+/**
+ * Resolver un reto (enviar respuesta)
+ * @param {number} idPerfil - ID del perfil
+ * @param {number} idReto - ID del reto
+ * @param {string} respuestaSeleccionada - Respuesta elegida
+ * @returns {Promise} - Resultado de la validación
+ */
+export const solucionarReto = async (idPerfil, idReto, respuestaSeleccionada) => {
+  const response = await api.post('/solucionar_reto/', {
+    id_perfil: idPerfil,
+    id_reto: idReto,
+    respuesta_seleccionada: respuestaSeleccionada,
+  });
   return response.data;
 };
 

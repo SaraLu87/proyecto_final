@@ -7,6 +7,7 @@
  */
 
 import { AuthProvider } from './context/AuthContext';
+import { UserAuthProvider } from './context/UserAuthContext';
 import AppRouter from './rutas/AppRouter';
 
 // Importar estilos globales
@@ -15,7 +16,9 @@ import './styles/global.css';
 function App() {
   return (
     <AuthProvider>
-      <AppRouter />
+      <UserAuthProvider>
+        <AppRouter />
+      </UserAuthProvider>
     </AuthProvider>
   );
 }

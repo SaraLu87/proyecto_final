@@ -15,7 +15,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 
-// Páginas
+// Páginas de Administrador
 import Login from '../pages/auth/Login';
 import RecuperarContrasena from '../pages/auth/RecuperarContrasena';
 import Dashboard from '../pages/admin/Dashboard';
@@ -24,11 +24,25 @@ import Temas from '../pages/admin/Temas';
 import Retos from '../pages/admin/Retos';
 import Tips from '../pages/admin/Tips';
 
+// Páginas de Usuario
+import LoginUsuario from '../pages/auth/LoginUsuario';
+import LoginUsuarioSimple from '../pages/auth/LoginUsuarioSimple';
+import Registro from '../pages/auth/Registro';
+import TestPage from '../pages/auth/TestPage';
+import DashboardUsuario from '../pages/user/Dashboard';
+import Profile from '../pages/user/Profile';
+import TemaDetalle from '../pages/user/TemaDetalle';
+import RetoJuego from '../pages/user/RetoJuego';
+
+// Componentes de Usuario
+import UserHeader from '../components/UserHeader';
+import UserRoute from '../components/UserRoute';
+
 // Protección de rutas
 import AdminRoute from './AdminRoute';
 
 /**
- * Layout para páginas protegidas (con Header, Sidebar y Footer)
+ * Layout para páginas protegidas de administrador (con Header, Sidebar y Footer)
  */
 const AdminLayout = ({ children }) => {
   return (
@@ -46,6 +60,20 @@ const AdminLayout = ({ children }) => {
 };
 
 /**
+ * Layout para páginas protegidas de usuario (solo con UserHeader)
+ */
+const UserLayout = ({ children }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <UserHeader />
+      <main style={{ flex: 1 }}>
+        {children}
+      </main>
+    </div>
+  );
+};
+
+/**
  * Componente principal de rutas
  */
 const AppRouter = () => {
@@ -54,7 +82,9 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Ruta de Login */}
+        {/* ========== RUTAS DE ADMINISTRADOR ========== */}
+
+        {/* Ruta de Login de Administrador */}
         <Route
           path="/login"
           element={
@@ -69,6 +99,78 @@ const AppRouter = () => {
             estaAutenticado() ? <Navigate to="/admin" replace /> : <RecuperarContrasena />
           }
         />
+
+        {/* ========== RUTAS DE USUARIO ========== */}
+
+        {/* Ruta de TEST */}
+        <Route
+          path="/test"
+          element={<TestPage />}
+        />
+
+        {/* Ruta de Login de Usuario */}
+        <Route
+          path="/login-usuario"
+          element={<LoginUsuario />}
+        />
+
+        {/* Ruta de Registro de Usuario */}
+        <Route
+          path="/registro"
+          element={<Registro />}
+        />
+
+        {/* ========== RUTAS PROTEGIDAS DE USUARIO ========== */}
+
+        {/* Dashboard de Usuario */}
+        <Route
+          path="/usuario/dashboard"
+          element={
+            <UserRoute>
+              <UserLayout>
+                <DashboardUsuario />
+              </UserLayout>
+            </UserRoute>
+          }
+        />
+
+        {/* Perfil de Usuario */}
+        <Route
+          path="/usuario/perfil"
+          element={
+            <UserRoute>
+              <UserLayout>
+                <Profile />
+              </UserLayout>
+            </UserRoute>
+          }
+        />
+
+        {/* Detalle de Tema */}
+        <Route
+          path="/usuario/tema/:idTema"
+          element={
+            <UserRoute>
+              <UserLayout>
+                <TemaDetalle />
+              </UserLayout>
+            </UserRoute>
+          }
+        />
+
+        {/* Juego de Reto */}
+        <Route
+          path="/usuario/reto/:idReto"
+          element={
+            <UserRoute>
+              <UserLayout>
+                <RetoJuego />
+              </UserLayout>
+            </UserRoute>
+          }
+        />
+
+        {/* ========== RUTAS PROTEGIDAS DE ADMINISTRADOR ========== */}
 
         {/* Rutas protegidas con AdminRoute y Layout */}
         <Route
