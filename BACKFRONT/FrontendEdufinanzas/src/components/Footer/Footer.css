@@ -1,0 +1,35 @@
+/**
+ * Estilos para el componente Footer
+ */
+
+.footer-edufinanzas {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-top: auto;
+  width: 100%;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-edufinanzas p {
+  margin: 0;
+}
+
+.footer-edufinanzas strong {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.footer-edufinanzas .text-muted {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+@media (max-width: 768px) {
+  .footer-edufinanzas {
+    padding: 1.5rem 0;
+  }
+
+  .footer-edufinanzas p {
+    font-size: 0.9rem;
+  }
+}

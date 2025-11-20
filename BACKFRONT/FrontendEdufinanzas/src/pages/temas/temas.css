@@ -1,0 +1,143 @@
+/* ----------------------------------------
+   TemaLayout — estilos modernos
+   Paleta de EduFinanzas
+----------------------------------------- */
+
+.contenedor-layout {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.titulo-tema {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1d4ed8; /* Azul EduFinanzas */
+  margin-bottom: 15px;
+}
+
+.tema-descripcion {
+  font-size: 1.2rem;
+  color: #475569;
+  margin: 0 auto 40px auto;
+  max-width: 750px;
+  padding: 15px 25px;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.contenedor-circulos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.cargando-texto,
+.error-texto {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   TEMA COMPLETADO
+--------------------------------------------------------- */
+
+.tema-completado-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.tema-completado-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 25px;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-top: 12px solid #2F7AD9;
+}
+
+.titulo-completado {
+  font-size: 2rem;
+  color: #2F7AD9;
+  font-weight: 800;
+}
+
+.mensaje-completado {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #475569;
+}
+
+.recompensa-box {
+  margin: 25px 0;
+  font-size: 1.5rem;
+  background: #e8f5ff;
+  padding: 15px;
+  border-radius: 18px;
+  border: 2px solid #2F7AD9;
+  font-weight: bold;
+  color: #14539b;
+}
+
+/* Animación moneda */
+.animate-coin {
+  animation: coinJump 1s ease-in-out forwards;
+}
+
+@keyframes coinJump {
+  0% { transform: scale(0.2); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.botones-final {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Botón volver */
+.btn-volver {
+  background: #e2e8f0;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-volver:hover {
+  background: #cbd5e1;
+}
+
+/* Botón siguiente */
+.btn-siguiente {
+  background: #2F7AD9;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-siguiente:hover {
+  background: #1d5faf;
+}
+
+.mensaje-final-completo {
+  margin-top: 15px;
+  color: #16a34a;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+

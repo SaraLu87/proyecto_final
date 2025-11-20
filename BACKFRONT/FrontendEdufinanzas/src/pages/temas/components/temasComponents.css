@@ -1,0 +1,245 @@
+/* Tarjeta de pregunta */
+.pregunta-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+/* Descripción */
+.descripcion-pregunta {
+  color: #475569;
+  margin-bottom: 15px;
+}
+
+/* Contenedor opciones */
+.opciones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Botones */
+.opcion-boton {
+  background: #e2e8f0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.opcion-boton:hover {
+  background: #cbd5e1;
+}
+
+/* Correcta */
+.opcion-correcta {
+  background: #4ade80 !important;
+  color: #064e3b;
+  font-weight: bold;
+}
+
+/* Incorrecta */
+.opcion-incorrecta {
+  background: #f87171 !important;
+  color: #7f1d1d;
+  font-weight: bold;
+}
+
+/* Mensajes extra */
+.texto-correcto {
+  color: #16a34a;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.texto-incorrecto {
+  color: #b91c1c;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+/* Botón finalizar */
+.contenedor-finalizar {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Botón Finalizar Tema */
+.btn-finalizar {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  padding: 14px 40px;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  margin-top: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-finalizar:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+/* --------------------------------------------------------
+   TARJETA GAMIFICADA (DATOS CURIOSOS)
+   -------------------------------------------------------- */
+.tarjeta-dato-gamificada {
+  position: relative;
+  background: linear-gradient(135deg, #2F7AD9, #52E36A);
+  padding: 25px;
+  border-radius: 18px;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+/* Animación suave al entrar */
+.animate-pop {
+  animation: popIn 0.4s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Ícono superior */
+.tarjeta-icono {
+  font-size: 2.2rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Texto */
+.tarjeta-texto {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #fefefe;
+}
+
+/* Efecto hover tipo carta */
+.tarjeta-dato-gamificada:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Brillo dinámico */
+.tarjeta-brillo {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.45),
+    transparent 55%
+  );
+  top: -20%;
+  left: -20%;
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: brilloMove 6s linear infinite;
+}
+
+@keyframes brilloMove {
+  0% {
+    transform: translate(-20%, -20%) rotate(25deg);
+  }
+  100% {
+    transform: translate(20%, 20%) rotate(25deg);
+  }
+}
+
+
+/* -----------------------------------------------------------
+   TARJETA DE PREGUNTAS GAMIFICADA
+----------------------------------------------------------- */
+
+.pregunta-tarjeta {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  border-left: 12px solid #2F7AD9;
+}
+
+.pregunta-titulo {
+  font-size: 1.4rem;
+  color: #2F7AD9;
+  font-weight: 800;
+}
+
+.pregunta-descripcion {
+  margin: 10px 0 20px;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.contenedor-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Botón base */
+.opcion-gamificada {
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #e5ecf6;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.opcion-gamificada:hover {
+  background: #cbd9f0;
+}
+
+/* Correcta */
+.opcion-correcta {
+  background: #4ade80 !important;
+  color: #064e3b;
+  font-weight: bold;
+}
+
+/* Incorrecta */
+.opcion-incorrecta {
+  background: #fb7185 !important;
+  color: #7f1d1d;
+  font-weight: bold;
+}
+
+/* Mensajes */
+.mensaje-correcto {
+  margin-top: 12px;
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.mensaje-incorrecto {
+  margin-top: 12px;
+  color: #b91c1c;
+  font-weight: bold;
+}
