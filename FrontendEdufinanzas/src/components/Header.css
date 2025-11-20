@@ -1,0 +1,162 @@
+/**
+ * ESTILOS: HEADER ADMINISTRATIVO
+ *
+ * Estilos para la barra de navegación superior del panel de administración
+ * Basado en el diseño del frontend de usuario
+ */
+
+.header-admin {
+  background: linear-gradient(90deg, #2F7AD9, #52E36A);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo y título */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-circle {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo-icon {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2F7AD9;
+}
+
+.header-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Acciones del header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Información del administrador */
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.admin-icon {
+  font-size: 1.2rem;
+}
+
+.admin-name {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Botón de cerrar sesión */
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2F7AD9;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-logout:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
+}
+
+.logout-icon {
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-admin {
+    padding: 0.8rem 1rem;
+  }
+
+  .header-title {
+    font-size: 1.3rem;
+  }
+
+  .logo-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-icon {
+    font-size: 22px;
+  }
+
+  .admin-name {
+    display: none;
+  }
+
+  .logout-text {
+    display: none;
+  }
+
+  .btn-logout {
+    padding: 0.6rem;
+    border-radius: 50%;
+  }
+
+  .admin-info {
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.1rem;
+  }
+
+  .header-actions {
+    gap: 0.8rem;
+  }
+}

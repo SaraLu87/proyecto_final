@@ -1,0 +1,219 @@
+/**
+ * ESTILOS: SIDEBAR
+ *
+ * Estilos para la barra lateral de navegación del panel de administración
+ */
+
+/* Botón toggle para móviles */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 1rem;
+  z-index: 1001;
+  background: #2F7AD9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background: #2565b8;
+  transform: scale(1.05);
+}
+
+.hamburger-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay para cerrar el sidebar en móviles */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Sidebar principal */
+.sidebar {
+  width: 260px;
+  background: #1C3A63;
+  height: calc(100vh - 82px);
+  position: sticky;
+  top: 82px;
+  left: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-content {
+  padding: 1.5rem 0;
+}
+
+/* Header del sidebar */
+.sidebar-header {
+  padding: 0 1.5rem 1rem;
+  border-bottom: 2px solid rgba(82, 227, 106, 0.3);
+  margin-bottom: 1rem;
+}
+
+.sidebar-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Navegación */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0 1rem;
+}
+
+/* Enlaces de navegación */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.sidebar-link:hover {
+  background: rgba(82, 227, 106, 0.15);
+  color: white;
+  transform: translateX(5px);
+}
+
+.sidebar-link-active {
+  background: linear-gradient(90deg, #2F7AD9, #52E36A);
+  color: white;
+  box-shadow: 0 2px 8px rgba(47, 122, 217, 0.3);
+}
+
+.sidebar-icon {
+  font-size: 1.3rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.sidebar-text {
+  flex: 1;
+}
+
+/* Separador */
+.sidebar-divider {
+  margin: 1rem 0 0.5rem;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Scrollbar personalizada */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(82, 227, 106, 0.5);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(82, 227, 106, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .sidebar-title {
+    font-size: 1.15rem;
+  }
+
+  .sidebar-link {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mostrar botón toggle */
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mostrar overlay cuando el menú está abierto */
+  .sidebar-overlay {
+    display: block;
+  }
+
+  /* Sidebar oculto por defecto en móviles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    transform: translateX(-100%);
+    z-index: 1000;
+    box-shadow: none;
+  }
+
+  /* Sidebar abierto */
+  .sidebar-open {
+    transform: translateX(0);
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar-content {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 260px;
+  }
+
+  .sidebar-toggle {
+    width: 40px;
+    height: 40px;
+    top: 70px;
+  }
+
+  .hamburger-icon {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,119 @@
+/**
+ * ESTILOS: FOOTER
+ *
+ * Estilos para el pie de página del panel de administración
+ * Mantiene la misma estética del frontend de usuario
+ */
+
+.footer-admin {
+  background: linear-gradient(90deg, #2F7AD9, #52E36A);
+  padding: 2rem 2rem 1rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Mensaje motivacional */
+.footer-message {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.footer-quote {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlaces del footer */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Copyright */
+.footer-copyright {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-copyright p {
+  color: white;
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-admin {
+    padding: 1.5rem 1rem 0.8rem;
+  }
+
+  .footer-quote {
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
+
+  .footer-copyright p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-quote {
+    font-size: 0.95rem;
+  }
+
+  .footer-link {
+    font-size: 0.85rem;
+  }
+}
