@@ -1,0 +1,60 @@
+.retos-container {
+  min-height: 70vh;
+}
+
+.retos-title {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.circulos-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.circulo-card {
+  border: none;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-height: 400px;
+}
+
+.circulo-title {
+  color: var(--primary-color);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.circulo-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.pregunta-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.respuesta-opcion {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+}
+
+.respuesta-opcion:hover {
+  background-color: #f8f9fa;
+  border-color: var(--primary-color);
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

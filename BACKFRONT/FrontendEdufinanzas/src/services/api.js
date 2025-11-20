@@ -80,10 +80,20 @@ export const login = async (correo, contrasena) => {
 /**
  * Registra un nuevo usuario y su perfil
  * @param {Object} userData - Datos del usuario y perfil
- * @returns {Promise} Usuario creado
+ * Formato esperado:
+ * {
+ *   correo: "usuario@ejemplo.com",
+ *   contrasena: "ContraseñaSegura123!",
+ *   rol: "Usuario",
+ *   perfil: {
+ *     nombre_perfil: "Juan Pérez",
+ *     edad: 16
+ *   }
+ * }
+ * @returns {Promise} Usuario y perfil creados
  */
 export const register = async (userData) => {
-  const response = await apiClient.post('/usuarios/', userData)
+  const response = await apiClient.post('/register/', userData)
   return response.data
 }
 
